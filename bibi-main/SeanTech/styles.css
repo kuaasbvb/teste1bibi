@@ -1,0 +1,372 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background: #000000;
+    color: white;
+    padding: 10px 0;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.logo h1 {
+    display: inline;
+}
+
+nav ul {
+    list-style: none;
+    float: right;
+}
+
+nav ul li {
+    display: inline;
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.catalogo {
+    padding: 20px;
+}
+
+.catalogo h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.livros {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.livro {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.livro:hover {
+    transform: scale(1.05);
+}
+
+.livro img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.modal {
+    display: none; /* Ocultar por padrão */
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente */
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+    max-width: 500px;
+}
+
+.modal-content img {
+    width: 100%;
+    height: auto;
+}
+
+.fechar {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.fechar:hover,
+.fechar:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background: #000000;
+    color: white;
+}
+
+.avaliacao {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.estrela {
+    font-size: 24px; /* Tamanho da estrela */
+    color: #ccc; /* Cor padrão */
+    cursor: pointer;
+}
+
+.estrela:hover,
+.estrela:hover ~ .estrela {
+    color: gold; /* Cor ao passar o mouse */
+}
+
+.estrela.selecionada {
+    color: gold; /* Cor da estrela selecionada */
+}
+
+.btn-reservar {
+    background-color: #000000; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    border: none; /* Remove a borda padrão */
+    padding: 10px 20px; /* Espaçamento interno */
+    text-align: center; /* Centraliza o texto */
+    text-decoration: none; /* Remove o sublinhado */
+    display: inline-block; /* Para que o padding funcione corretamente */
+    font-size: 16px; /* Tamanho da fonte */
+    margin: 4px 2px; /* Margem */
+    cursor: pointer; /* Muda o cursor ao passar o mouse */
+    border-radius: 5px; /* Cantos arredondados */
+    transition: background-color 0.3s, transform 0.2s; /* Transições suaves */
+}
+
+.btn-reservar:hover {
+    background-color: #000000; /* Cor mais escura ao passar o mouse */
+    transform: scale(1.05); /* Leve aumento de tamanho */
+}
+
+.btn-reservar:active {
+    transform: scale(0.95); /* Reduz o tamanho ao clicar */
+}
+
+/* Estilos para o modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
+
+.fechar {
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Estilos para o formulário de reserva */
+#formReserva {
+    display: flex;
+    flex-direction: column;
+}
+
+#formReserva label {
+    margin-bottom: 5px;
+}
+
+#formReserva input {
+    margin-bottom: 15px;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+/* Estilos para a lista de reservas */
+#reservas-lista {
+    margin-top: 20px;
+}
+
+.reserva-item {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.reserva-item button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.reserva-item button:hover {
+    background-color: #ff3333;
+}
+
+
+.search-bar input {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+}
+
+.search-bar button {
+    padding: 10px;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+.search-bar button img {
+    width: 20px;
+}
+
+.search-bar button:hover {
+    background-color: #45a049;
+}
+.modal {
+    display: none; /* Escondido por padrão */
+    position: fixed; /* Fica em cima de tudo */
+    z-index: 1; /* Fica no topo */
+    left: 0;
+    top: 0;
+    width: 100%; /* Largura total */
+    height: 100%; /* Altura total */
+    overflow: auto; /* Permite scroll se necessário */
+    background-color: rgb(0, 0, 0); /* Cor de fundo */
+    background-color: rgba(0, 0, 0, 0.4); /* Cor de fundo com transparência */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* Centraliza o modal */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Largura do modal */
+}
+
+.fechar {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.fechar:hover,
+.fechar:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilo do formulário de reserva */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-top: 10px;
+}
+
+form input {
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+form button {
+    padding: 10px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #000000;
+}
+/* Estilo da barra de pesquisa */
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; /* Espaço abaixo da barra de pesquisa */
+}
+
+#searchInput {
+    width: 100%; /* Ocupa todo o espaço disponível */
+    padding: 10px; /* Espaçamento interno */
+    border: 1px solid #ccc; /* Borda leve */
+    border-radius: 20px; /* Bordas arredondadas */
+    font-size: 16px; /* Tamanho da fonte */
+    transition: border-color 0.3s; /* Transição suave para a borda */
+}
+
+#searchInput:focus {
+    border-color: #007BFF; /* Cor da borda ao focar */
+    outline: none; /* Remove o contorno padrão */
+}
+
+.search-icon {
+    background-color: #007BFF; /* Cor de fundo do botão */
+    border: none; /* Remove a borda padrão */
+    border-radius: 50%; /* Botão redondo */
+    padding: 10px; /* Espaçamento interno */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    margin-left: 10px; /* Espaçamento entre a barra de pesquisa e o ícone */
+    transition: background-color 0.3s; /* Transição suave para o fundo */
+}
+
+.search-icon:hover {
+    background-color: #0056b3; /* Cor ao passar o mouse */
+}
+
+.search-icon img {
+    width: 20px; /* Tamanho do ícone de pesquisa */
+    height: 20px; /* Tamanho do ícone de pesquisa */
+}
+
+
+
